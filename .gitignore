@@ -1,0 +1,31 @@
+# Local assistant instructions and memory
+/AGENTS.md
+/MEMORY.md
+
+# macOS metadata
+.DS_Store
+
+# Compiled programs
+/add
+/char
+/checking
+/escapeChar
+/getting-started
+/gsa
+/gss
+/largest
+/length
+/mem
+/numbers
+/numdigits
+/p3
+/reverse
+/sum
+/types
+/upc
+
+# Compiler output
+*.o
+*.out
+*.exe
+*.dSYM/
