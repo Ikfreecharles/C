@@ -7,19 +7,25 @@
 
 # Compiled programs
 /add
+/average
 /char
 /checking
 /escapeChar
 /getting-started
 /gsa
 /gss
+/guess
 /largest
 /length
 /mem
 /numbers
 /numdigits
 /p3
+/pointers1
+/qsort
+/repdigits
 /reverse
+/ssort
 /sum
 /types
 /upc
