@@ -9,6 +9,7 @@
 /add
 /average
 /char
+/changen
 /checking
 /escapeChar
 /getting-started
@@ -17,6 +18,7 @@
 /guess
 /largest
 /length
+/maxmin
 /mem
 /numbers
 /numdigits
