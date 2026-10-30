@@ -46,20 +46,20 @@ int main (int argc, char *argv[]) {
 struct inventory_t *insert_part(struct inventory_t *list) {
   /*
   - first sort list with the part_number. Then update the remaining properties
-  - ask user to enter part number first e.g. 50
-  - insert this part into its right position
-    * between 49 and 51 or
-    * as the first item if list is empty or if the curr->next is 51
-    * as the last item if curr->next is NULL and prev->next is 49
-    HOW TO DO THIS
-    - maintain a trailing pointer prev which starts by pointing to NULL and curr which is the first item in the list
-    - traverse sequentially until new_node->part_number > curr->part_number. Then exit loop. At this point, prev points to address of item with part_number 49 and curr points to the address with part_number 51
+    - ask user to enter part_number first e.g. 50
+    - insert this part into its right position
+      * between 49 and 51 or
+      * as the first item if list is empty or if the curr->next is 51
+      * as the last item if curr->next is NULL and prev->next is 49
+      HOW TO DO THIS
+      - maintain a trailing pointer prev which starts by pointing to NULL and curr which is the first item in the list
+      - traverse sequentially until new_node->part_number > curr->part_number. Then exit loop. At this point, prev points to address of item with part_number 49 and curr points to the address with part_number 51
 
-  - ask user to enter the part name and quantity on hand and update those fields in the node
-    * update the new_node->name and new_node->in_hand
-  - update new_node->next
-    * new_node->next now points to *curr
-    * prev->next now points to *new_node
+    - ask user to enter the part name and quantity on hand and update those fields in the node
+      * update the new_node->name and new_node->in_hand
+    - update new_node->next
+      * new_node->next now points to *curr
+      * prev->next now points to *new_node
   */
   struct inventory_t *curr, *prev, *new_node;
   new_node = malloc(sizeof(struct inventory_t));
@@ -67,7 +67,9 @@ struct inventory_t *insert_part(struct inventory_t *list) {
   printf("Enter part number: ");
   scanf("%d", &new_node->part_number);
 
-  for (curr = list, prev = NULL; curr != NULL && new_node->part_number > curr->part_number; prev = curr, curr = curr->next ) /*
+  for (curr = list, prev = NULL;
+    curr != NULL && new_node->part_number > curr->part_number;
+    prev = curr, curr = curr->next ) /*
     @48
     50 > 48
     incr. prev = 48, curr = 49
