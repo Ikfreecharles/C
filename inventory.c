@@ -74,7 +74,6 @@ struct inventory_t *insert_part(struct inventory_t *list) {
     50 > 48
     incr. prev = 48, curr = 49
 
-
     @49
     50 > 49
     incr. prev =49, curr = 51
