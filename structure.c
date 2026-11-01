@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-struct employee {
+struct employee_t {
   char *name;
   int age;
   bool is_paid;
 };
 
-struct employee *profile(char *a, int, bool);
+static struct employee_t *set_profile(char *a, int, bool);
 
 int main(int argc, char *argv[])
 {
@@ -24,11 +24,11 @@ int main(int argc, char *argv[])
   printf("Alias is: %s\n", employee1.alias);
   printf("Employee 2 is paid? %d\n\n", employee2.is_paid);
 
-  struct employee *annie_profile = profile("Annie", 20, true);
+  struct employee_t *annie_profile = set_profile("Annie", 20, true);
   printf("Profile 1 name is %s\n", annie_profile->name);
   return 0;
 }
 
-struct employee *profile(char *name, int age, bool is_paid) {
-  return &(struct employee) {.name=name, age, is_paid};
+struct employee_t *set_profile(char *name, int age, bool is_paid) {
+  return &(struct employee_t) {name, age, is_paid};
 }

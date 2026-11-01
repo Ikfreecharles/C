@@ -5,7 +5,7 @@
 #include "readline.h"
 #include "inventory.h"
 
-struct inventory_t *inventory_list = NULL;
+static struct inventory_t *inventory_list = NULL; //static makes inventory_list internal linking
 
 int main (int argc, char *argv[]) {
   
@@ -32,6 +32,9 @@ int main (int argc, char *argv[]) {
       break;
     case 'p':
       print_inventory(inventory_list);
+      break;
+    case 'y':
+      sort_ascending();
       break;
     case 'q':
       return 0;
@@ -209,4 +212,19 @@ struct inventory_t *update_inventory (struct inventory_t *list) {
     }
   }
   return list;  
+}
+
+int compare_parts (const void *p, const void *q) {
+  return ((struct inventory_t *)p)->part_number - ((struct inventory_t *)q)->part_number;
+}
+
+static int sort_ascending() {
+  /*
+  using qsort from stdlib, sort the items in ascending order
+  */
+  int list[10] = {1,4,8,9,10,2,6,7,0,12};
+  qsort(list, sizeof list / sizeof list[0], sizeof(int), compare_parts);
+  for (int i = 0; i < 10; i++)
+    printf("%d ", list[i]);
+  return 0;
 }
