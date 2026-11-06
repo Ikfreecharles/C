@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "readline.h"
 
 #define MAX_REMIND 50
 #define MSG_LEN 60
 
-int read_line(char str[], int len);
 
 int main (int argc, char *argv []) {
   char day_str[3], msg_str[MSG_LEN], *reminders[MAX_REMIND];
@@ -21,6 +21,8 @@ int main (int argc, char *argv []) {
     scanf("%2d", &day);
     if (day == 0)
       break;
+    else if (day > 31)
+      printf("Day can't be bigger than 31");
     sprintf(day_str, "%2d", day);
     read_line(msg_str, MSG_LEN);
 
@@ -47,13 +49,4 @@ int main (int argc, char *argv []) {
     printf(" %s\n", reminders[i]);
 
   return 0;
-}
-
-int read_line(char str[], int len) {
-  int ch, i = 0;
-  while ((ch = getchar()) != '\n')
-    if (i < len)
-      str[i++] = ch;
-  str[i] = '\0';
-  return i;
 }

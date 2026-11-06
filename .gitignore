@@ -8,8 +8,10 @@
 # Compiled programs
 /add
 /average
+/canopen
 /char
 /changen
+/chario
 /checking
 /escapeChar
 /getting-started
@@ -35,6 +37,7 @@
 /sum
 /types
 /upc
+/wordfinder
 
 # Compiler output
 *.o
