@@ -1,20 +1,43 @@
-# Ignore extensionless files at every directory depth
-*
-!*/
-!*.*
-
-# Keep common extensionless project files
-!Makefile
-!README
-!LICENSE
-
 # Local assistant instructions and memory
 /AGENTS.md
 /MEMORY.md
-.vscode
 
 # macOS metadata
 .DS_Store
+
+# Compiled programs
+/add
+/average
+/canopen
+/char
+/changen
+/chario
+/checking
+/escapeChar
+/getting-started
+/gsa
+/gss
+/guess
+/inventory
+/largest
+/length
+/maxmin
+/mem
+/numbers
+/numdigits
+/p3
+/pointers1
+/qsort
+/remind2
+/repdigits
+/reversal
+/reverse
+/ssort
+/structure
+/sum
+/types
+/upc
+/wordfinder
 
 # Compiler output
 *.o

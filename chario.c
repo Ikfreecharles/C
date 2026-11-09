@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SAMPLE_FILE "sample_char.dat"
-#define OUTPUT_FILE "outputfile.dat"
+#define SAMPLE_FILE "sample.txt"
+#define OUTPUT_FILE "outputfile.txt"
 
 int main () {
   FILE *fp;
@@ -20,7 +20,7 @@ int main () {
   // read the character from an arbitraty stream and write to output stream
   FILE *input_stream;
   FILE *output_stream;
-  if ((input_stream = fopen(SAMPLE_FILE, "r")) == NULL || (output_stream = fopen(OUTPUT_FILE, "a")) == NULL)
+  if ((input_stream = fopen(SAMPLE_FILE, "r")) == NULL || (output_stream = fopen(OUTPUT_FILE, "w")) == NULL)
   {
     printf("%s or %s can't open\n", SAMPLE_FILE, OUTPUT_FILE);
     exit(EXIT_FAILURE);
