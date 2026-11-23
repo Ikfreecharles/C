@@ -3,7 +3,7 @@
 
 int main (int argc, char *argv[]){
   /*
-  - function call takes in one file name as a arg from the terminal e.g. ,/canopen test.txt
+  - function call takes in one file name as a arg from the terminal e.g. ,/can_open test.txt
   - main open file in read mode
     * returns NULL, print error and exit
     * print file can be opened. close file.

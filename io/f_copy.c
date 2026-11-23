@@ -15,7 +15,7 @@ int main (int argc, char *argv[]) {
 
   // check number of args
   if (argc != 3) {
-    fprintf(stderr, "usage: fcopy source dest\n");
+    fprintf(stderr, "usage: f_copy source dest\n");
     exit(EXIT_FAILURE);
   }
   // open source and destination

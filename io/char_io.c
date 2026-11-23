@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define SAMPLE_FILE "sample_char.dat"
-#define OUTPUT_FILE "outputfile.dat"
+#define OUTPUT_FILE "output_file.dat"
 
 int main () {
   FILE *fp;
