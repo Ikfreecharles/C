@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "readline.h"
+#include "../common/read_line.h"
 #include "inventory.h"
 
 static struct inventory_t *inventory_list = NULL; //static makes inventory_list internal linking

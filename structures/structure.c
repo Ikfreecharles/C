@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
+#include <string.h>
 
 struct employee_t {
   char *name;
@@ -25,6 +27,7 @@ int main(int argc, char *argv[])
   printf("Employee 2 is paid? %d\n\n", employee2.is_paid);
 
   struct employee_t *annie_profile = set_profile("Annie", 20, true);
+  assert(strncmp(annie_profile->name, "Annie", 5)==0);
   printf("Profile 1 name is %s\n", annie_profile->name);
   return 0;
 }
