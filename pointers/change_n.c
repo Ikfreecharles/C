@@ -5,6 +5,11 @@
 int main (void) {
   int a[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, *p = a, *q = a +N-1, temp;
 
+  int *r = a;
+  // printf("1: %d\n", r == a[0]);
+  printf("2: %d\n", r == &a[0]);
+  printf("3: %d\n", *r == a[0]);
+  printf("4: %d\n", r[0] == a[0]);
   while (p < q)
   {
     printf("Before incrementing p: %d\n", *p);
