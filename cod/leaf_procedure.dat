@@ -1,0 +1,19 @@
+**Compiling a c prodecure that doesn't call another procedure**
+
+int leaf_example (int g, int h, int i, int j)
+{
+  int f;
+  f = (g + h) - (i + j);
+  return f;
+}
+
+assembly instruction explanation
+leaf_example:
+  addi reserve -12 (corresponding to 12 bytes) on the stack.
+  three sw calls to save the current value in the temporary register (x5, x6) and save register (x20) to the stack. Basically borrowing the register.
+  perform operations (body of the function)
+    two add and one sub stored in x5, x6 and x20 respectively
+  addi to copy the value of f into the parameter register
+  lw to restore from the stack the old value of the borrowed registers x5, x6, x20
+  addi to delete 12 bytes from stack. So x2 now points back to original
+  jalr x0, 0(x1) end procedure with a branch register using the return address
