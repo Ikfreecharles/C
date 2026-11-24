@@ -1,0 +1,73 @@
+RV architecture has 32 general purpose register each 32 bits wide
+**RV Instructions**
+
+**ARITHMETIC INSTRUCTIONS**
+add - funct7(7bits)(0) rs2(5bit) rs1(5bits) funct3(3bits)(0) rd(5bits)  opcode(7bits)(51) - R type
+sub - funct7(7bits)(32) rs2(5bit) rs1(5bits) funct3(3bits)(0) rd(5bits)  opcode(7bits)(51) - R type
+addi - immediate(12bits)(constant)  rs1(5bits)  funct3(3bits)  rd(5bits)  opcode(7bits)(19) - I tpye
+
+**DATA TRANSFER INSTRUCTIONS**
+lw - immediate(12bits)(address)  rs1(5bits)  funct3(3bits)  rd(5bits)  opcode(7bits)(3) - S type
+sw - immediate[11:5](7bits)(address) rs2(5bits) rs1(5bits)  funct3(3bits) immediate[4:0](5bits)(address) opcode(7bits)(32) - S type
+lbu
+sb
+lhu
+sh
+lui - immediate(20bits)(constant) rd(5bits)  opcode(7bits) - U type
+//lr.w + sc.w are used in sequence
+lr.w
+sc.w 
+
+
+**LOGICAL INSTRUCTIONS**
+00000000 00000000 00000000 00001001_2 = 9_10
+>> shift left by 4 ---> which is equivalent to multiplying the original by 2^4 in base 10.
+00000000 00000000 00000000 10010000_2 = 144_10
+
+slli - func6(remaining bits)(0) immediate(constant)() rs1(5bits)  funct3(3bits) rd(5bits) opcode(7bits)(19)
+and - funct7(7bits) rs2(5bits) rs1(5bits) funct3(3bits) rd(5bits) opcode(7bits)
+andi
+or -  funct7(7bits) rs2(5bits) rs1(5bits)  funct3(3bits) rd(5bits) opcode(7bits)
+ori
+xor - funct7(7bits) rs2(5bits) rs1(5bits) funct3(3bits) rd(5bits) opcode(7bits)
+xori
+
+**CONDITIONAL INSTRUCTIONS**
+bne - immediate[12:6](7bits) rs2(5bits) rs1(5bits) funct3(3bits) immediate[5:1](5bits) opcode(7bits) - SB type
+
+**UNCONDITIONAL INSTRUCTIONS**
+jal - immediate[20:1](20bits) rd(5bits) opcode(7bits) - UJ type
+
+
+
+if (i == j) f = g + h; else f = g - h
+
+bne x22, x23, Else
+add x19, x20, x21
+beq x0, x0, Exit
+Else:sub x19, x20, x21
+Exit:
+
+
+while (save[i] == k)
+  i += 1;
+
+Loop: slli x10, x22, 2
+add x10, x10, x25
+lw x9, 0(x10)
+bne x9, x24, Exit
+addi x22, x22, 1
+beq x0, x0, Loop
+Exit:
+
+x0 - read only register
+x1 - return address register
+x2 - stack pointer register
+x3 - global pointer register
+x4 - Thread pointer register
+x5 - x7 - Temporary register
+x8 - Saved register/Frame pointer
+x9 - Saved registere
+x10 - x17 - Argument/result register
+x18 - x27 - Saved register
+x28 - x31 - Temporary register
