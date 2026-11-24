@@ -1,0 +1,26 @@
+**Compiling a nested procedure**
+
+int fact(int n)
+{
+  if (n < 1) return (1);
+    else return (n * fact(n - 1));
+}
+
+assembly instruction explanation
+fact:
+  addi sp, sp, -8 reserves 8 bytes on stack for 2 items
+  sw saves the return address x1 and argument n x10
+  the body is executed as defined
+    addi x5, x10, -1
+    bge x5, x0, L1 //L1 is ofcourse a label defined
+    addi x10, x0, 1
+    addi sp, sp, 8 pops the 2 items off stack
+    jalr x0, 0(x1) returns to the caller whose address is in x1
+  L1:addi x10, x10, -1
+     jal x1, fact calls fact and saves the caller address to x1 for later use by jalr
+  add x6, x1, 0 x6 being a tempory register don't need to be written to memory
+  lw x10, 0(sp)
+  lw x1, 4(sp)
+  addi sp, sp, 8 pop those 2 items from stack
+  mul x10, x10, x6
+  jalr x0, 0(x1) return to the caller whose address was saved by jal to x1 earlier
